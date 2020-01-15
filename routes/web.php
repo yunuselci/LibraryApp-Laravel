@@ -15,16 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/books',function (){
-    return view('books');
-});
+Route::get('/books', 'BookController@index');
 
-Route::get('/addbook',function (){
-   return view('addbook');
-});
-
-
-
+Route::get('/addbook','BookController@addBook');
 Route::post('/addbook','BookController@addBook');
 
 Auth::routes();

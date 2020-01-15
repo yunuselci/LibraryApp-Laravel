@@ -28,6 +28,23 @@
                             <th scope="col">Image</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @php
+                        $count = 1;
+                        @endphp
+                        @if(!empty($books))
+                            @foreach($books as $book)
+                                <tr>
+                                    <td scope="col">{{ $count++ }}</td>
+                                    <td scope="col">{{ $book->name }}</td>
+                                    <td scope="col">{{ $book->author }}</td>
+                                    <td scope="col"><img src="{{ $book->image_url }}" width="30px"></td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <h3 style="color:red">Kitap Bulunamadı.</h3>
+                        @endif
+                        </tbody>
                     </table>
                 </div>
             </div>

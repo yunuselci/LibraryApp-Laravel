@@ -2,20 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
+use App\User;
 use Illuminate\Http\Request;
-use App\Providers\Book;
 
 class BookController extends Controller
 {
     public function index(Request $request)
     {
-        $books = new \App\Book();
+        $books = Book::all();
+
+        return view('books')->with('books', $books);
     }
 
     public function addBook(Request $request)
     {
-        $post = $request->all();
-        try {
+        $users = User::all();
+        if ($request->isMethod('post')) {
+            $post = $request->all();
+            $request->validate(
+                [
+                    'book-name' => 'required',
+                    'book-author' => 'required',
+                    'book-image-url' => 'required',
+                    'book-owner-id' => 'required|numeric',
+                    'temp-book-owner-id' => 'required|numeric',
+
+                ]
+            );
             $book = new \App\Book();
             $book->name = $post['book-name'];
             $book->author = $post['book-author'];
@@ -24,13 +38,13 @@ class BookController extends Controller
             $book->temp_owner_id = $post['temp-book-owner-id'];
             $book->save();
             return redirect('books');
-        } catch (\Exception $exception) {
-            return response()->json(['success' => false, 'status' => $exception]);
         }
+        return view('addbook')->with('users', $users);
     }
 
-    public function showBooks(){
-        $books = DB::table('books')->paginate(15);
+    public function showBooks()
+    {
+        $books = Book::paginate(15);
 
         return view('books.index', ['books' => $books]);
     }
