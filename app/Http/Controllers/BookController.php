@@ -10,8 +10,7 @@ class BookController extends Controller
 {
     public function index(Request $request)
     {
-        $books = Book::all();
-
+        $books = Book::with('owner')->get();
         return view('books')->with('books', $books);
     }
 
@@ -42,10 +41,5 @@ class BookController extends Controller
         return view('addbook')->with('users', $users);
     }
 
-    public function showBooks()
-    {
-        $books = Book::paginate(15);
 
-        return view('books.index', ['books' => $books]);
-    }
 }

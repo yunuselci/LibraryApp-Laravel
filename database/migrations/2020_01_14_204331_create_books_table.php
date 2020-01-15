@@ -33,4 +33,5 @@ class CreateBooksTable extends Migration
     {
         Schema::dropIfExists('books');
     }
+
 }

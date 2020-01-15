@@ -13,6 +13,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Author</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Owner</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -26,6 +27,7 @@
                                         <td scope="col">{{ $book->name }}</td>
                                         <td scope="col">{{ $book->author }}</td>
                                         <td scope="col"><img src="{{ $book->image_url }}" width="30px"></td>
+                                        <td scope="col"> {{ $book->owner->name }}</td>
                                     </tr>
                                 @endforeach
                             @else

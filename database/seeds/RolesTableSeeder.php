@@ -17,4 +17,5 @@ class RolesTableSeeder extends Seeder
         Role::create(['name'=> 'author']);
         Role::create(['name'=> 'user']);
     }
+
 }

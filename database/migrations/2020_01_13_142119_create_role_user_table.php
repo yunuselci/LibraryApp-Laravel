@@ -30,4 +30,5 @@ class CreateRoleUserTable extends Migration
     {
         Schema::dropIfExists('role_user');
     }
+
 }

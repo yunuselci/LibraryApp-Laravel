@@ -14,7 +14,7 @@ class Book extends Model
     protected $fillable = ['name','author','image_url','owner_id','temp_owner_id'];
 
     public function owner(){
-        return $this->belongsTo('App\User','owner_id');
+        return $this->belongsTo('App\User','owner_id','id');
     }
 
     public function tempOwner(){

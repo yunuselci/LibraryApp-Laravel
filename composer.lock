@@ -12,7 +12,8 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dnoegel/php-xdg-base-dir.git",
-                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd"
+                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+
             },
             "dist": {
                 "type": "zip",
