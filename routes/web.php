@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/books',function (){
+    return view('books');
+});
+
+Route::get('/addbook',function (){
+   return view('addbook');
+});
+
+
+
+Route::post('/addbook','BookController@addBook');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

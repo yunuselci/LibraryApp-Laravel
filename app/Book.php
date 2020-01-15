@@ -3,19 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Book extends Model
 {
-    public function add($name,$author,$image_url,$owner_id,$temp_owner_id){
-
-    }
-    public function takeBook($temp_owner_id, $id_books)
-    {
-
-    }
-    public function searchBook($bookName)
-    {
-
+    protected $table = 'books';
+    protected $primaryKey = 'id';
+    protected $fillable = ['name','author','image_url','owner_id','temp_owner_id'];
+    public function getBooks(){
     }
 
+    public function owner(){
+        return $this->belongsTo('App\User','owner_id');
+    }
+
+    public function tempOwner(){
+        return $this->belongsTo('App\User','temp_owner_id');
+    }
 }

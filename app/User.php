@@ -58,4 +58,7 @@ class User extends Authenticatable
         return false;
     }
 
+    public function book(){
+        return $this->hasMany('App\Book','id');
+    }
 }
