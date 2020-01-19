@@ -1,9 +1,24 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="row justify-content-center">
         <div class="col-md-8">
+
             <div class="card">
-                <div class="card-header">All Books</div>
+
+                <div class="card-header">All Books
+                    <div class="pull-righ">
+                        <form action="/search" method="get">
+                            <div class="input-group">
+                                <input type="search" name="search" class="form-control">
+                                <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="card-body">
                         <table class="table table-striped">

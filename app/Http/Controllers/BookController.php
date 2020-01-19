@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -41,5 +42,11 @@ class BookController extends Controller
         return view('addbook')->with('users', $users);
     }
 
+    public function search(Request $request){
+        $search = $request->get('search');
+        $books = DB::table('books')->where('name','like','%'.$search.'%')->paginate(5);
+        return view('index',['books' =>$books]);
+
+    }
 
 }
