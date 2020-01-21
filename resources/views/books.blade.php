@@ -7,7 +7,7 @@
             <div class="card">
 
                 <div class="card-header">All Books
-                    <div class="pull-righ">
+                    <div class="pull-right">
                         <form action="/search" method="get">
                             <div class="input-group">
                                 <input type="search" name="search" class="form-control">
@@ -46,7 +46,7 @@
                                     </tr>
                                 @endforeach
                             @else
-                                <h3 style="color:red">Kitap Bulunamadı.</h3>
+                                <td><h3 style="color:red">Kitap Bulunamadı.</h3></td>
                             @endif
                             </tbody>
                         </table>

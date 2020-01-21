@@ -45,7 +45,7 @@ class BookController extends Controller
     public function search(Request $request){
         $search = $request->get('search');
         $books = DB::table('books')->where('name','like','%'.$search.'%')->paginate(5);
-        return view('index',['books' =>$books]);
+        return view('books')->with('books',$books);
 
     }
 
